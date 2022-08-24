@@ -1,7 +1,9 @@
-import time
+import os
 import subprocess
+import time
+from config import IP,DNS,mask,getway
 
-command = 'netsh interface ip set address "Ethernet 2" dhcp | netsh interface ip set dns "Ethernet 2" dhcp'
+command = f'netsh interface ip set dns "Ethernet 2" static {DNS} | netsh interface ip set address name= "Ethernet 2" static {IP} {mask} {getway}'
 
 def subprocess_cmd(command):
     process = subprocess.Popen(command,stdout=subprocess.PIPE, shell=True)
