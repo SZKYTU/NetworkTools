@@ -10,4 +10,3 @@ def subprocess_cmd(command):
     proc_stdout = process.communicate()[0].strip()
     for line in proc_stdout.decode().split('\n'):
         print (line)
-subprocess_cmd(command)
