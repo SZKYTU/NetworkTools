@@ -4,7 +4,7 @@ from dynamicMode import subprocess_cmd_dynamic, dynamicComand
 
 layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]]
 
-window = sg.Window('Window Title', layout)
+window = sg.Window('NETTool', layout)
 
 
 while True:
