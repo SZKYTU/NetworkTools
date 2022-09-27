@@ -1,6 +1,8 @@
 import subprocess
 from pythonping import ping
 from config import IP,DNS,mask,getway
+import psutil
+
 
 def ipCheck():
     for ip in IP:
@@ -14,18 +16,9 @@ def ipCheck():
     return FREEIP
     
 
+InterfaceName= list(psutil.net_if_stats())[0]
 
-def ethernetAdapterCheck():
-    ipcfgCommandout = str(subprocess.check_output("ipconfig /all" )) #<-- static work 
-    if "Ethernet 3" in ipcfgCommandout:
-        print("done") 
-    else:
-        print("miss")
-
-
-ethernetAdapterCheck()
-
-# staticCommand = f'netsh interface ip set dns "Ethernet 2" static {DNS} | netsh interface ip set address name= "Ethernet 2" static {ipCheck()} {mask} {getway}'
+staticCommand = f'netsh interface ip set dns "{InterfaceName}" static {DNS} | netsh interface ip set address name= "{InterfaceName}]" static {ipCheck()} {mask} {getway}'
 
 
 def subprocess_cmd_static(command):
@@ -33,15 +26,6 @@ def subprocess_cmd_static(command):
     proc_stdout = process.communicate()[0].strip()
     for line in proc_stdout.decode().split('\n'):
         print (line)
-
-
-# class StaticModeInfo:
-#     def __init__(self, IP, MAC, HostName):    <-- to dynamic mode
-#         self.IP = IP
-#         self.MAC = MAC
-#         self.HostName = HostName
-
-
 
 
 

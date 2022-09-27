@@ -6,14 +6,20 @@ layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]]
 
 window = sg.Window('NETTool', layout)
 
+def popupAlert(message):
+    sg.Popup(message, keep_on_top=True)
 
 while True:
     event, values = window.read()
     if event == "Static":
         subprocess_cmd_static(staticCommand)
+        
     elif event == "Dynamic":
         subprocess_cmd_dynamic(dynamicComand)
+        popupAlert("Dynamic mode Enable")
     elif event == sg.WINDOW_CLOSED or event == "Quit":
         break
+
+
 
 window.close()
