@@ -1,7 +1,10 @@
 import time
 import subprocess
+import psutil
 
-dynamicComand = 'netsh interface ip set address "Ethernet 2" dhcp | netsh interface ip set dns "Ethernet 2" dhcp'
+InterfaceName= list(psutil.net_if_stats())[0]
+
+dynamicComand = f'netsh interface ip set address "{InterfaceName}" dhcp | netsh interface ip set dns "Ethernet 2" dhcp'
 
 
 # class StaticModeInfo:
