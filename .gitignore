@@ -6,4 +6,5 @@ nt/
 #Files
 config.py
 requirements.txt
+credentials.json
 
