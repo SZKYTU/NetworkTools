@@ -7,4 +7,6 @@ nt/
 config.py
 requirements.txt
 credentials.json
+googlekey.json
+
 
