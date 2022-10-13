@@ -2,12 +2,12 @@ from this import d
 import PySimpleGUI as sg
 from pythonping import ping
 from config import IP,DNS,mask,getway
-# from staticMode import subprocess_cmd_static, staticCommand
-# from dynamicMode import subprocess_cmd_dynamic, dynamicComand
+# from staticMode import subprocess_cmd_static, staticCommand # UNCOM
+# from dynamicMode import subprocess_cmd_dynamic, dynamicComand # UNCOM
 
 layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]]
 
-# window = sg.Window('NETTool', layout)
+# window = sg.Window('NETTool', layout) # UNCOM
 
 def ipCheck():
     for ip in IP:
@@ -31,20 +31,24 @@ class DynamicModeInfo:
 TESTDOCKER = DynamicModeInfo(ipCheck())
 print(TESTDOCKER)
 
-# def popupAlert(message):
-#     sg.Popup(message, keep_on_top=True)
+"""
+#UNCOM
 
-# while True:
-#     event, values = window.read()
-#     if event == "Static":
-#         subprocess_cmd_static(staticCommand)
+def popupAlert(message):
+    sg.Popup(message, keep_on_top=True)
+
+while True:
+    event, values = window.read()
+    if event == "Static":
+        subprocess_cmd_static(staticCommand)
         
-#     elif event == "Dynamic":
-#         subprocess_cmd_dynamic(dynamicComand)
-#         popupAlert("Dynamic mode Enable")
-#     elif event == sg.WINDOW_CLOSED or event == "Quit":
-#         break
+    elif event == "Dynamic":                  #UNCOM
+        subprocess_cmd_dynamic(dynamicComand)
+        popupAlert("Dynamic mode Enable")
+    elif event == sg.WINDOW_CLOSED or event == "Quit":
+        break
 
 
 
-# window.close()
+window.close()
+"""
