@@ -4,16 +4,15 @@ from config import IP,DNS,mask,getway
 import psutil
 
 
-def ipCheck():
-    for ip in IP:
-        pingComand = ping(ip, count=1,verbose=True)
-        string = str(pingComand)
+# def ipCheck():
+#     for ip in IP:
+#         pingComand = ping(ip, count=1,verbose=True)
+#         string = str(pingComand)
         
-        if "out" in string:
-            FREEIP = ip
-            print("-->",FREEIP) #scc!!
-            break
-    return FREEIP
+#         if "out" in string:
+#             FREEIP = ip
+#             break
+#     return FREEIP
     
 
 InterfaceName= list(psutil.net_if_stats())[0]
