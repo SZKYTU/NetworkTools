@@ -8,5 +8,5 @@ config.py
 requirements.txt
 credentials.json
 googlekey.json
-
-
+.DS_Store
+__pycache__/

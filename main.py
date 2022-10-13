@@ -9,18 +9,17 @@ layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]]
 
 # window = sg.Window('NETTool', layout) # UNCOM
 
-
 class DynamicModeInfo:
-    def __init__(self, IP, MAC, HostName):   
-        self.IP = IP
-        self.MAC = MAC
-        self.HostName = HostName
+    def getIp():
+        
 
     def __str__(self):
-        return f"{self.IP}-{self.MAC}-{self.HostName}"
+        return f"{self.IP}"
 
-TESTDOCKER = DynamicModeInfo(ipCheck())
-print(TESTDOCKER)
+
+print(DynamicModeInfo())
+
+
 
 """
 #UNCOM
