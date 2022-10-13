@@ -9,15 +9,6 @@ layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]]
 
 # window = sg.Window('NETTool', layout) # UNCOM
 
-def ipCheck():
-    for ip in IP:
-        pingComand = ping(ip, count=1,verbose=True)
-        string = str(pingComand)
-        
-        if "out" in string:
-            FREEIP = ip
-            break
-    return FREEIP
 
 class DynamicModeInfo:
     def __init__(self, IP, MAC, HostName):   
