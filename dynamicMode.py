@@ -1,13 +1,18 @@
 import time
 import subprocess
 import psutil
-from getmac import get_mac_address as gma
 
 InterfaceName= list(psutil.net_if_stats())[0]
-print(gma())
-
 
 dynamicComand = f'netsh interface ip set address "{InterfaceName}" dhcp | netsh interface ip set dns "Ethernet 2" dhcp'
+
+
+# class StaticModeInfo:
+#     def __init__(self, IP, MAC, HostName):   
+#         self.IP = IP
+#         self.MAC = MAC
+#         self.HostName = HostName
+
 
 def subprocess_cmd_dynamic(command):
     process = subprocess.Popen(command,stdout=subprocess.PIPE, shell=True)

@@ -9,13 +9,13 @@ import uuid
 # from staticMode import subprocess_cmd_static, staticCommand # UNCOM
 # from dynamicMode import subprocess_cmd_dynamic, dynamicComand # UNCOM
 
-# layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]]
+# layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]] # UNCOM
 
 # window = sg.Window('NETTool', layout) # UNCOM
 
 class UserInfo(): #wrap
     def getIP():
-        IP = socket.gethostbyname(socket.gethostname())
+        IP = socket.gethostbyname(socket.gethostname()) 
         return IP
 
     def getHostname():
