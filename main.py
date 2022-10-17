@@ -1,23 +1,33 @@
+from socket import socket
 from this import d
-import PySimpleGUI as sg
+import socket
+# import PySimpleGUI as sg
 from pythonping import ping
 from config import IP,DNS,mask,getway
+from uuid import getnode as get_mac
+import uuid
 # from staticMode import subprocess_cmd_static, staticCommand # UNCOM
 # from dynamicMode import subprocess_cmd_dynamic, dynamicComand # UNCOM
 
-layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]]
+# layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]]
 
 # window = sg.Window('NETTool', layout) # UNCOM
 
-class DynamicModeInfo:
-    def getIp():
-        
+class UserInfo(): #wrap
+    def getIP():
+        IP = socket.gethostbyname(socket.gethostname())
+        return IP
 
-    def __str__(self):
-        return f"{self.IP}"
+    def getHostname():
+        Hostname = socket.gethostname()
+        return Hostname
 
+    def getMAC():
+        MAC = ':'.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff)
+        for ele in range(0,8*6,8)][::-1])
+        return MAC
 
-print(DynamicModeInfo())
+    
 
 
 
