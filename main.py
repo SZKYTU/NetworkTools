@@ -1,17 +1,17 @@
 from socket import socket
 from this import d
 import socket
-# import PySimpleGUI as sg
+import PySimpleGUI as sg
 from pythonping import ping
 from config import IP,DNS,mask,getway
 from uuid import getnode as get_mac
 import uuid
-# from staticMode import subprocess_cmd_static, staticCommand # UNCOM
-# from dynamicMode import subprocess_cmd_dynamic, dynamicComand # UNCOM
+from staticMode import subprocess_cmd_static, staticCommand # UNCOM
+from dynamicMode import subprocess_cmd_dynamic, dynamicComand # UNCOM
 
-# layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]] # UNCOM
+layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]] # UNCOM
 
-# window = sg.Window('NETTool', layout) # UNCOM
+window = sg.Window('NETTool', layout) # UNCOM
 
 class UserInfo(): #wrap
     def getIP():
@@ -26,12 +26,13 @@ class UserInfo(): #wrap
         MAC = ':'.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff)
         for ele in range(0,8*6,8)][::-1])
         return MAC
+        
 
     
 
 
 
-"""
+
 #UNCOM
 
 def popupAlert(message):
@@ -50,5 +51,3 @@ while True:
 
 
 
-window.close()
-"""
