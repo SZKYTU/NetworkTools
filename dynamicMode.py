@@ -4,7 +4,7 @@ import psutil
 
 InterfaceName= list(psutil.net_if_stats())[0]
 
-dynamicComand = f'netsh interface ip set address "{InterfaceName}" dhcp | netsh interface ip set dns "Ethernet 2" dhcp'
+dynamicComand = f'netsh interface ip set address "{InterfaceName}" dhcp | netsh interface ip set dns "{InterfaceName}" dhcp'
 
 def subprocess_cmd_dynamic(command):
     process = subprocess.Popen(command,stdout=subprocess.PIPE, shell=True)
@@ -12,3 +12,4 @@ def subprocess_cmd_dynamic(command):
     for line in proc_stdout.decode().split('\n'):
         print (line)
         
+ 

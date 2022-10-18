@@ -3,7 +3,6 @@ from this import d
 import socket
 import PySimpleGUI as sg
 from pythonping import ping
-from config import IP,DNS,mask,getway
 from uuid import getnode as get_mac
 import uuid
 from staticMode import subprocess_cmd_static, staticCommand # UNCOM
@@ -29,12 +28,6 @@ class UserInfo(): #wrap
         
 
     
-
-
-
-
-#UNCOM
-
 def popupAlert(message):
     sg.Popup(message, keep_on_top=True)
 
@@ -45,7 +38,9 @@ while True:
         
     elif event == "Dynamic":                  #UNCOM
         subprocess_cmd_dynamic(dynamicComand)
-        popupAlert("Dynamic mode Enable")
+        popupAlert(f"Przydzielone IP -> {UserInfo.getIP()} \n"
+                    f"Przydzielony MAC -> {UserInfo.getMAC()} \n"
+                    f"Nazwa Komputera -> {UserInfo.getHostname()}")
     elif event == sg.WINDOW_CLOSED or event == "Quit":
         break
 
