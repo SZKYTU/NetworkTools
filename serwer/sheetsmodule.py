@@ -1,7 +1,7 @@
-from datetime import date
-import gspread
-import sys
 import os
+import sys
+import gspread
+from datetime import date
 
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)

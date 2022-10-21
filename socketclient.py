@@ -1,9 +1,9 @@
-from http import client
-from re import S
-import socket
 import json
-from config import socketHost,socketPort
+import socket
+from re import S
+from http import client
 from main import UserInfo
+from config import socketHost,socketPort
 
 
 UserInfoJS = {

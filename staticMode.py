@@ -1,7 +1,7 @@
+import psutil
 import subprocess
 from pythonping import ping
 from config import IP,DNS,mask,getway
-import psutil
 
 
 

@@ -1,10 +1,10 @@
-from socket import socket
-from this import d
+import uuid
 import socket
+from this import d
 import PySimpleGUI as sg
+from socket import socket
 from pythonping import ping
 from uuid import getnode as get_mac
-import uuid
 from staticMode import subprocess_cmd_static, staticCommand # UNCOM
 from dynamicMode import subprocess_cmd_dynamic, dynamicComand # UNCOM
 

@@ -1,6 +1,6 @@
 import time
-import subprocess
 import psutil
+import subprocess
 
 InterfaceName= list(psutil.net_if_stats())[0]
 
