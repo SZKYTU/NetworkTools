@@ -1,3 +1,4 @@
+from sheetsmodule import sheetInsert
 from base64 import decode
 import os
 import sys
@@ -11,10 +12,11 @@ BUFFER = 1024
 from config import socketHost,socketPort
 
 socket = socket.socket(socket.AF_INET  , socket.SOCK_STREAM)
-socket.bind(("192.168.0.188", 3300))
+socket.bind((socketHost, socketPort))
 socket.listen(2)
 
 while True:
     cliSocket, adress = socket.accept()
-    get = cliSocket.recv(BUFFER).decode("utf8")
-    print(get)
+    getJSON = json.loads(cliSocket.recv(BUFFER).decode("utf8"))
+    sheetsmodule.sheetInsert(getJSON)
+    

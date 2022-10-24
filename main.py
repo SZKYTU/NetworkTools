@@ -1,20 +1,20 @@
+from socket import socket
 import uuid
 import socket
 from this import d
 import PySimpleGUI as sg
-from socket import socket
 from pythonping import ping
 from uuid import getnode as get_mac
 from staticMode import subprocess_cmd_static, staticCommand # UNCOM
 from dynamicMode import subprocess_cmd_dynamic, dynamicComand # UNCOM
 
-# layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]] # UNCOM
+layout = [[sg.Button('Static'), sg.Button('Dynamic'), sg.Button("Quit")]] # UNCOM
 
-# window = sg.Window('NETTool', layout) # UNCOM
+window = sg.Window('NETTool', layout) # UNCOM
 
 class UserInfo(): #wrap
     def getIP():
-        IP = socket.gethostbyname(socket.gethostname()) 
+        IP = socket.gethostbyname(socket.gethostname())
         return IP
 
     def getHostname():
@@ -28,21 +28,21 @@ class UserInfo(): #wrap
         
 
     
-# def popupAlert(message):
-#     sg.Popup(message, keep_on_top=True)
+def popupAlert(message):
+    sg.Popup(message, keep_on_top=True)
 
-# while True:
-#     event, values = window.read()
-#     if event == "Static":
-#         subprocess_cmd_static(staticCommand)
+while True:
+    event, values = window.read()
+    if event == "Static":
+        subprocess_cmd_static(staticCommand)
         
-#     elif event == "Dynamic":                  #UNCOM
-#         subprocess_cmd_dynamic(dynamicComand)
-#         popupAlert(f"Przydzielone IP -> {UserInfo.getIP()} \n"
-#                     f"Przydzielony MAC -> {UserInfo.getMAC()} \n"
-#                     f"Nazwa Komputera -> {UserInfo.getHostname()}")
-#     elif event == sg.WINDOW_CLOSED or event == "Quit":
-#         break
+    elif event == "Dynamic":                  #UNCOM
+        subprocess_cmd_dynamic(dynamicComand)
+        popupAlert(f"Przydzielone IP -> {UserInfo.getIP()} \n"
+                    f"Przydzielony MAC -> {UserInfo.getMAC()} \n"
+                    f"Nazwa Komputera -> {UserInfo.getHostname()}")
+    elif event == sg.WINDOW_CLOSED or event == "Quit":
+        break
 
 
 

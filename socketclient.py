@@ -7,18 +7,15 @@ from config import socketHost,socketPort
 
 
 UserInfoJS = {
-    # "IP": UserInfo.getIP(),
-    "IP": "10.10.10.10",
-    # "Hostname": UserInfo.getHostname(),
-    "Hostname": "hostname",
-    # "MAC": UserInfo.getMAC()}
-    "MAC": "ASDASDASDASDASDAS"}
+    "IP": UserInfo.getIP(),
+    "Hostname": UserInfo.getHostname(),
+    "MAC": UserInfo.getMAC()}
 
 json = json.dumps(UserInfoJS)
 
     
 socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-socket.connect(("192.168.0.188", 3300))
+socket.connect((socketHost, socketPort))
 
 json = json.encode("utf8")
 
