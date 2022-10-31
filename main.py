@@ -1,5 +1,6 @@
 # from socket import socket
 # import uuid
+from unittest import result
 from pcinfomodule import UserInfo
 import PySimpleGUI as sg
 from socketclient import clientJsonSend
@@ -17,11 +18,12 @@ while True:
         
     elif event == "Dynamic":                  #UNCOM
         subprocess_cmd_dynamic(dynamicComand)
-        sg.popup_yes_no(f"Przydzielone IP -> {UserInfo.getIP()} \n"
+        result = sg.popup_yes_no(f"Przydzielone IP -> {UserInfo.getIP()} \n"
                         f"Przydzielony MAC -> {UserInfo.getMAC()} \n"
                         f"Nazwa Komputera -> {UserInfo.getHostname()} \n \n"
                         "Czy wyslac dane do arkusza?")
-        if sg.popup_yes_no == "Yes":
+        print(result)
+        if result == "Yes":
             clientJsonSend()
             print("wykonujes")
             break
