@@ -18,6 +18,6 @@ socket.listen(2)
 while True:
     cliSocket, adress = socket.accept()
     getJSON = json.loads(cliSocket.recv(BUFFER).decode("utf8"))
-    print(f"dodaje {getJSON}")
+    print(f"ADD {getJSON}")
     sheetInsert(getJSON)
     
