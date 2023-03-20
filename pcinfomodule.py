@@ -1,6 +1,6 @@
 import uuid
 import socket
-
+import wmi
 
 class UserInfo():  # wrap
     def getIP():
@@ -12,6 +12,8 @@ class UserInfo():  # wrap
         return Hostname
 
     def getMAC():
-        MAC = ':'.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff)
-                        for ele in range(0, 8*6, 8)][::-1])
-        return MAC
+        wmiObj = wmi.WMI()
+        temp = wmiObj.Win32_NetworkAdapterConfiguration(IPEnabled=True)[0]
+        mac = temp.MACAddress
+        return mac
+        
