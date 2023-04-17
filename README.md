@@ -33,7 +33,3 @@ To use the NetworkTools tool, you need a Windows operating system and Python ver
 2. Select the network card mode - Dynamic or Static.
 3. Enter the host name and click the "Save" button.
 4. The IP address, MAC address, and host name will be saved to the Google Sheets file.
-
-## How to configure the Google Sheets connection
-
-1. Create a `credentials.json` file that allows the tool to access the Google Sheets file.
